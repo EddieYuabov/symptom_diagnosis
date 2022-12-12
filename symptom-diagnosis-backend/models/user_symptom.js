@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   user_symptom.init(
     {
-      symptom: DataTypes.STRING
+      symptom: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,
