@@ -27,9 +27,17 @@ const UpdateDiagnosis = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-
+const DeleteDiagnosis = async (req, res) => {
+  try {
+    await User_diagnosis.destroy({ where: { id: req.params.diagnosis_id } })
+    res.send({ msg: 'Deleted', payload: req.params.diagnosis_id, status: 'Ok' })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = {
   GetDiagnosis,
   CreateDiagnosis,
-  UpdateDiagnosis
+  UpdateDiagnosis,
+  DeleteDiagnosis
 }
