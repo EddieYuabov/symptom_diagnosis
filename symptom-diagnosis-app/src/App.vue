@@ -1,17 +1,16 @@
 <template>
   <div>
     <header>
-      <h1 id="header">Website</h1>
+      <InputComp/>
     </header>
   </div>
 </template>
 
 <script>
-
-
+import InputComp from './components/Input';
 export default {
   name: 'App',
-  components: {}
+  components: {InputComp}
 }
 </script>
 

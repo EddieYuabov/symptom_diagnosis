@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User_symptom.belongsTo(models.User, {
+        foreignKey: 'userId'
+      })
     }
   }
   User_symptom.init(
@@ -16,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
       symptom: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       }
     },
     {
