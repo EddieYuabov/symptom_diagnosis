@@ -1,11 +1,23 @@
 const { User_diagnosis } = require('../models')
 
-const GetDiagnosis = async (req, res) => {
+const GetDiagnoses = async (req, res) => {
   try {
-    const diagnosis = await User_diagnosis.findAll()
-    res.send(diagnosis)
+    const diagnoses = await User_diagnosis.findAll()
+    res.send(diagnoses)
   } catch (error) {
     return res.status(500).send(error.message)
+  }
+}
+const GetDiagnosis = async (req, res) => {
+  try {
+    const diagnosis = await User_diagnosis.findOne({
+      where: {
+        id: req.params.diagnosis_id
+      }
+    })
+    res.send(diagnosis)
+  } catch (error) {
+    throw error
   }
 }
 const CreateDiagnosis = async (req, res) => {
@@ -36,6 +48,7 @@ const DeleteDiagnosis = async (req, res) => {
   }
 }
 module.exports = {
+  GetDiagnoses,
   GetDiagnosis,
   CreateDiagnosis,
   UpdateDiagnosis,

@@ -2,10 +2,22 @@ const { User_symptom } = require('../models')
 
 const GetSymptoms = async (req, res) => {
   try {
-    const symptom = await User_symptom.findAll()
-    res.send(symptom)
+    const symptoms = await User_symptom.findAll()
+    res.send(symptoms)
   } catch (error) {
     return res.status(500).send(error.message)
+  }
+}
+const GetSymptom = async (req, res) => {
+  try {
+    const symptom = await User_symptom.findOne({
+      where: {
+        id: req.params.symptom_id
+      }
+    })
+    res.send(symptom)
+  } catch (error) {
+    throw error
   }
 }
 const CreateSymptom = async (req, res) => {
@@ -37,6 +49,7 @@ const DeleteSymptom = async (req, res) => {
 }
 module.exports = {
   GetSymptoms,
+  GetSymptom,
   CreateSymptom,
   UpdateSymptom,
   DeleteSymptom
