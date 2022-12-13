@@ -10,8 +10,9 @@
                 <button>
                     <h3>Add Symptom</h3>
                 </button>
-                <div>
-                    <!-- <h1>{{symptoms}}</h1> -->
+                <h1 id="symptoms">List of symptoms:</h1>
+                <div :key="symptom.id" v-for="symptom in symptoms">
+                    <h4>{{symptom.symptom}}</h4>
                 </div>
             </div>
         </form>
@@ -36,7 +37,8 @@ const URL = 'http://localhost:3001/home'
             },
             async getAllSymptoms (){
                 const response = await axios.get(`${URL}/symptoms`)
-                console.log(response)
+                this.symptoms = response.data
+                console.log(this.symptoms)
             }
         }
     }
@@ -45,5 +47,8 @@ const URL = 'http://localhost:3001/home'
 <style>
     #input-symptom{
         padding: 5px 15px 5px 15px;
+    }
+    #symptoms{
+        color:rgb(47, 47, 47);
     }
 </style>
