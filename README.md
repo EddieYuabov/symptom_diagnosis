@@ -14,6 +14,6 @@ CHD Link:
 
 ### It'll work as follows:
 - User inputs thier age and gender
-- User describes their symptoms
-- Application renders multiple possible diagnosis with information on what might have caused it, as well as how to treat it
+- User inputs their symptoms
+- User inputs their diagnosis and steps to treat it
 
