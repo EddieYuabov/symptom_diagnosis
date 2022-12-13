@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <header>
-      <InputComp/>
-    </header>
-  </div>
+    <div>
+      <nav>
+      <NavBar/>
+    </nav>
+    <RouterView></RouterView>
+    </div>
 </template>
 
 <script>
-import InputComp from './components/Input';
+// import InputComponent from './components/Input';
+import NavBar from './components/NavBar';
 export default {
   name: 'App',
-  components: {InputComp}
+  components: {NavBar}
 }
 </script>
 

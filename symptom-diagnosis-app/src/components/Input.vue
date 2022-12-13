@@ -19,7 +19,7 @@
                 <button class="gender-buttons" @click="handleFemaleChange">Female</button>
                 <br/>
             </div>
-            <button class="next-button">Next</button>
+            <button class="next-button" @click="$router.push('/symptoms')">Next</button>
             <br/>
         </form>
         <br/>
@@ -28,8 +28,7 @@
 
 <script>
     export default {
-        name: 'InputComp',
-        props: {},
+        name: 'InputComponent',
         data: ()=>({
             name: '',
             age: '',
@@ -67,7 +66,7 @@
     .next-button{
         margin-top: 50px;
         padding: 3px 15px 3px 15px;
-        background-color:white;
+        background-color:rgb(231, 231, 231);
         font-size:23px;
         cursor: pointer;
     }
