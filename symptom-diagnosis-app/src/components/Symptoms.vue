@@ -11,7 +11,7 @@
                     <h3>Add Symptom</h3>
                 </button>
                 <div>
-
+                    <!-- <h1>{{symptoms}}</h1> -->
                 </div>
             </div>
         </form>
@@ -19,18 +19,24 @@
 </template>
 
 <script>
+import axios from 'axios'
+const URL = 'http://localhost:3001/home'
     export default {
         name: 'SymptomComponent',
         data: ()=>({
             symptom: '',
             symptoms: []
         }),
+        mounted: function(){
+            this.getAllSymptoms()
+        },
         methods: {
             handleChange(e) {
                 this[e.target.name] = e.target.value
             },
-            getAllSymptoms(){
-                
+            async getAllSymptoms (){
+                const response = await axios.get(`${URL}/symptoms`)
+                console.log(response)
             }
         }
     }
