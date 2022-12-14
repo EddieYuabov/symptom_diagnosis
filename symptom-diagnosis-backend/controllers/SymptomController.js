@@ -5,7 +5,7 @@ const GetSymptoms = async (req, res) => {
     const symptoms = await User_symptom.findAll()
     res.send(symptoms)
   } catch (error) {
-    return res.status(500).send(error.message)
+    return res.status(404).send(error.message)
   }
 }
 const GetSymptom = async (req, res) => {
@@ -21,11 +21,13 @@ const GetSymptom = async (req, res) => {
   }
 }
 const CreateSymptom = async (req, res) => {
+  console.log('inside create symptom')
+  console.log(req.body)
   try {
     const symptom = await User_symptom.create({ ...req.body })
     res.send(symptom)
   } catch (error) {
-    return res.status(500).send(error.message)
+    return res.status(404).send(error.message)
   }
 }
 const UpdateSymptom = async (req, res) => {
@@ -36,7 +38,7 @@ const UpdateSymptom = async (req, res) => {
     )
     res.send(symptom)
   } catch (error) {
-    return res.status(500).send(error.message)
+    return res.status(404).send(error.message)
   }
 }
 const DeleteSymptom = async (req, res) => {
@@ -44,7 +46,7 @@ const DeleteSymptom = async (req, res) => {
     await User_symptom.destroy({ where: { id: req.params.symptom_id } })
     res.send({ msg: 'Deleted', payload: req.params.symptom_id, status: 'Ok' })
   } catch (error) {
-    return res.status(500).send(error.message)
+    return res.status(404).send(error.message)
   }
 }
 module.exports = {

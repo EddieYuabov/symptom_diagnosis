@@ -15,7 +15,7 @@
             <input @input="handleChange" :value="treatment" name="treatment"/>
             <br/>
             <br/>
-            <button>
+            <button id="add-diagnosis">
                 <h3>Add Diagnosis</h3>
             </button>
             <h1>List of Diagnoses:</h1>
@@ -62,5 +62,21 @@ const URL = 'http://localhost:3001/home'
 </script>
 
 <style>
-
+    #diagnoses-list{
+        outline-style: groove;
+    }
+    #add-diagnosis{
+        cursor: pointer;
+    }
+    #edit-button{
+        margin:40px 10px 40px 10px;
+        font-size:30px;
+        cursor: pointer;
+    }
+    #delete-button{
+        margin:40px 0px 40px 0px;
+        padding: 5px 0px 5px 0px;
+        font-size: 20px;
+        cursor: pointer;
+    }
 </style>
