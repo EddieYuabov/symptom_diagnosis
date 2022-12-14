@@ -3,7 +3,16 @@
     <h1>Diagnoses</h1>
     <form>
         <div>
-            <input @input="handleChange" :value="diagnosis" name="diagnosis"/>
+            <label>Name: </label>
+            <input @input="handleChange" :value="name" name="name"/>
+            <br/>
+            <br/>
+            <label>Possible Cause: </label>
+            <input @input="handleChange" :value="possible_cause" name="possible_cause"/>
+            <br/>
+            <br/>
+            <label>Treatment: </label>
+            <input @input="handleChange" :value="treatment" name="treatment"/>
             <br/>
             <br/>
             <button>
@@ -24,11 +33,13 @@ const URL = 'http://localhost:3001/home'
     export default {
         name: 'DiagnosisComponent',
         data:()=> ({
-            diagnosis: '',
+            name: '',
+            possible_cause: '',
+            treatment: '',
             diagnoses: []
         }),
         mounted: function(){
-
+            this.getAllDiagnoses()
         },
         methods:{
             handleChange(e) {
@@ -37,6 +48,7 @@ const URL = 'http://localhost:3001/home'
             async getAllDiagnoses (){
                 const response = await axios.get(`${URL}/diagnosis`)
                 this.diagnoses = response.data
+                console.log(this.diagnoses)
             }
         }
     }
