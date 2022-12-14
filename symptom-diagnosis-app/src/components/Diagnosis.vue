@@ -10,6 +10,9 @@
                 <h3>Add Diagnosis</h3>
             </button>
             <h1>List of Diagnoses:</h1>
+            <div>
+
+            </div>
         </div>
     </form>
 </div>
@@ -17,7 +20,17 @@
 
 <script>
     export default {
-        name: 'DiagnosisComponent'
+        name: 'DiagnosisComponent',
+        data:()=> ({
+            diagnosis: '',
+            diagnoses: []
+        }),
+        mounted: function(){
+
+        },
+        methods:{
+            
+        }
     }
 </script>
 
