@@ -11,7 +11,12 @@
                     <h3>Add Symptom</h3>
                 </button>
                 <h1 id="symptoms">List of symptoms:</h1>
-                <div id="symptoms-list" :key="symptom.id" v-for="symptom in symptoms">
+                <div 
+                id="symptoms-list" 
+                :key="symptom.id" 
+                v-for="symptom in symptoms"
+                @click="navigateItem(symptom.id)"
+                >
                     <h4>{{symptom.symptom}}</h4>
                 </div>
             </div>
@@ -46,6 +51,9 @@ const URL = 'http://localhost:3001/home'
                 await axios.post(`${URL}/symptoms/new`, data)
                 this.symptoms = [...this.symptoms, data]
                 this.symptom = ""    
+            },
+            navigateItem(id) {
+                this.$router.push(`/symptoms/${id}`)
             }
         }
     }
@@ -61,6 +69,7 @@ const URL = 'http://localhost:3001/home'
     #symptoms-list{
         display: flex;
         justify-content: center;
+        cursor: pointer;
     }
     #add-symptom{
         cursor: pointer;
