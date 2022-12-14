@@ -46,6 +46,7 @@ const URL = 'http://localhost:3001/home'
                 const data = {symptom: this.symptom}
                 console.log(data)
                 await axios.post(`${URL}/symptoms/new`, data)
+                this.symptoms = [...this.symptoms, data]
                 this.symptom = ""    
             },
             async deleteSymptom(e,id){
