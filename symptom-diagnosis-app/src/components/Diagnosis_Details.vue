@@ -5,7 +5,8 @@
         <h3>{{diagnoses.possible_cause}}</h3>
         <h4>{{diagnoses.treatment}}</h4>
         </div>
-
+        <button id="edit-button">&#9998;</button>
+        <button id="delete-button" @click="deleteSymptom(symptom.id)">&#128465;</button>
     </div>
 </template>
 
@@ -31,5 +32,15 @@ export default {
 </script>
 
 <style>
-
+    #edit-button{
+        margin:40px 10px 40px 10px;
+        padding:10px 15px 10px 15px;
+        font-size:30px;
+        cursor: pointer;
+    }
+    #delete-button{
+        padding:16px 15px 10px 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
 </style>
