@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+const URL = 'http://localhost:3001/home'
     export default {
         name: 'DiagnosisComponent',
         data:()=> ({
@@ -32,6 +34,10 @@
             handleChange(e) {
                 this[e.target.name] = e.target.value
             },
+            async getAllDiagnoses (){
+                const response = await axios.get(`${URL}/diagnosis`)
+                this.diagnoses = response.data
+            }
         }
     }
 </script>
