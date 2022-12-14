@@ -6,7 +6,7 @@
         <h4>{{diagnoses.treatment}}</h4>
         </div>
         <button id="edit-button">&#9998;</button>
-        <button id="delete-button" @click="deleteSymptom(symptom.id)">&#128465;</button>
+        <button id="delete-button" @click="deleteDiagnosis">&#128465;</button>
     </div>
 </template>
 
@@ -25,7 +25,11 @@ export default {
             async getDiagnosis(){
                 const response = await axios.get(`${URL}/diagnosis/${this.$route.params.diagnosis_id}`)
                 this.diagnoses = response.data
-                console.log(this.diagnoses)
+            },
+            async deleteDiagnosis(e){
+                e.preventDefault()
+                await axios.delete(`${URL}/diagnosis/${this.$route.params.diagnosis_id}`)
+                this.$router.push(`/diagnoses`)
             }
         }
 }
