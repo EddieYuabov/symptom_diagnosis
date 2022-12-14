@@ -3,7 +3,7 @@
     <h1>Diagnoses</h1>
     <form>
         <div>
-            <input/>
+            <input @input="handleChange" :value="diagnosis" name="diagnosis"/>
             <br/>
             <br/>
             <button>
@@ -29,7 +29,9 @@
 
         },
         methods:{
-            
+            handleChange(e) {
+                this[e.target.name] = e.target.value
+            },
         }
     }
 </script>
