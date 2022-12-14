@@ -19,8 +19,15 @@
                 <h3>Add Diagnosis</h3>
             </button>
             <h1>List of Diagnoses:</h1>
-            <div>
-
+            <div id="diagnoses-list" :key="diagnose.id" v-for="diagnose in diagnoses">
+                    <h6>Diagnosis:</h6>
+                    <h4>{{diagnose.name}}</h4>
+                    <h6>Possible cause:</h6>
+                    <h4>{{diagnose.possible_cause}}</h4>
+                    <h6>Treatment:</h6>
+                    <h4>{{diagnose.treatment}}</h4>
+                    <button id="edit-button">&#9998;</button>
+                    <button id="delete-button">&#128465;</button>
             </div>
         </div>
     </form>
