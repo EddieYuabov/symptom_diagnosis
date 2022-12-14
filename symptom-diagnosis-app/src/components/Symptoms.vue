@@ -13,8 +13,6 @@
                 <h1 id="symptoms">List of symptoms:</h1>
                 <div id="symptoms-list" :key="symptom.id" v-for="symptom in symptoms">
                     <h4>{{symptom.symptom}}</h4>
-                    <button id="edit-button">&#9998;</button>
-                    <button id="delete-button" @click="deleteSymptom(symptom.id)">&#128465;</button>
                 </div>
             </div>
         </form>
@@ -48,11 +46,6 @@ const URL = 'http://localhost:3001/home'
                 await axios.post(`${URL}/symptoms/new`, data)
                 this.symptoms = [...this.symptoms, data]
                 this.symptom = ""    
-            },
-            async deleteSymptom(e,id){
-                e.preventDefault()
-                console.log(id)
-                await axios.delete(`${URL}/symptoms/${id}`)
             }
         }
     }
@@ -68,16 +61,6 @@ const URL = 'http://localhost:3001/home'
     #symptoms-list{
         display: flex;
         justify-content: center;
-    }
-    #edit-button{
-        margin:40px 10px 40px 10px;
-        font-size:30px;
-        cursor: pointer;
-    }
-    #delete-button{
-        margin:40px 0px 40px 0px;
-        font-size: 20px;
-        cursor: pointer;
     }
     #add-symptom{
         cursor: pointer;

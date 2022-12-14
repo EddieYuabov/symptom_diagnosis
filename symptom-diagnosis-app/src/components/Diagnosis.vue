@@ -15,7 +15,7 @@
             <input @input="handleChange" :value="treatment" name="treatment"/>
             <br/>
             <br/>
-            <button id="add-diagnosis">
+            <button id="add-diagnosis" @click="createDiagnosis">
                 <h3>Add Diagnosis</h3>
             </button>
             <h1>List of Diagnoses:</h1>
@@ -56,6 +56,15 @@ const URL = 'http://localhost:3001/home'
                 const response = await axios.get(`${URL}/diagnosis`)
                 this.diagnoses = response.data
                 console.log(this.diagnoses)
+            },
+            async createDiagnosis(e) {
+                e.preventDefault()
+                const data = {name: this.name, possible_cause: this.possible_cause, treatment: this.treatment}
+                await axios.post(`${URL}/diagnosis/new`, data)
+                this.diagnoses = [...this.diagnoses, data]
+                this.name = ""
+                this.possible_cause = ""
+                this.treatment = ""    
             }
         }
     }
