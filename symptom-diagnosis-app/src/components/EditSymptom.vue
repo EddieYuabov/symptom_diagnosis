@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Edit "{{symptoms.symptom}}""</h1>
+        <h1>Edit "{{symptoms.symptom}}"</h1>
     </div>
     <div>
         <form>
@@ -8,7 +8,7 @@
                 <input @input="handleChange" :value="newSymptom" name="newSymptom"/>
                 <br/>
                 <br/>
-                <button>
+                <button id="edit-symptom-button" @click="editSymptom">
                     <h3>Edit Symptom</h3>
                 </button>
             </div>
@@ -37,10 +37,18 @@ export default {
                 this.symptoms = response.data
                 console.log(this.symptoms)
             },
+            async editSymptom(e){
+                e.preventDefault()
+                const data = {symptom: this.newSymptom}
+                await axios.put(`${URL}/symptoms/${this.$route.params.symptom_id}`, data)
+                this.$router.push(`/symptoms`)
+            }
         }
 }
 </script>
 
 <style>
-
+#edit-symptom-button{
+    cursor: pointer;
+}
 </style>
