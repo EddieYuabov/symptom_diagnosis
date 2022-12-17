@@ -18,7 +18,7 @@
             <button id="add-diagnosis" @click="createDiagnosis">
                 <h3>Add Diagnosis</h3>
             </button>
-            <h1>List of Diagnoses:</h1>
+            <h1 id="list-diagnoses">List of Diagnoses:</h1>
             <div 
             id="diagnoses-list" 
             :key="diagnose.id" 
@@ -79,6 +79,7 @@ const URL = 'http://localhost:3001/home'
 <style>
     #diagnoses-list{
         outline-style: groove;
+        outline-color: rgba(0, 0, 0, 0.724);
         cursor: pointer;
     }
     #add-diagnosis{
@@ -94,5 +95,8 @@ const URL = 'http://localhost:3001/home'
         padding: 5px 0px 5px 0px;
         font-size: 20px;
         cursor: pointer;
+    }
+    #list-diagnoses{
+        color:black
     }
 </style>

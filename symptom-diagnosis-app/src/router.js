@@ -20,7 +20,7 @@ const routes = [
     name: 'SymptomDetails'
   },
   {
-    path: '/symptoms/:symptom_id/edit',
+    path: '/symptoms/edit/:symptom_id',
     component: EditSymptom,
     name: 'EditSymptom'
   },
