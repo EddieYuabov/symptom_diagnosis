@@ -1,9 +1,10 @@
 import InputComponent from './components/Input'
+import EditSymptom from './components/EditSymptom'
 import SymptomComponent from './components/Symptoms'
 import DiagnosisComponent from './components/Diagnosis'
+import { createWebHistory, createRouter } from 'vue-router'
 import SymptomsDetails from './components/Symptoms_Details'
 import DiagnosisDetails from './components/Diagnosis_Details'
-import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   { path: '/', component: InputComponent, name: 'InputComponent' },
@@ -17,6 +18,11 @@ const routes = [
     path: '/symptoms/:symptom_id',
     component: SymptomsDetails,
     name: 'SymptomDetails'
+  },
+  {
+    path: '/symptoms/:symptom_id/edit',
+    component: EditSymptom,
+    name: 'EditSymptom'
   },
   {
     path: '/diagnosis/:diagnosis_id',

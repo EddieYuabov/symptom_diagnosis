@@ -54,6 +54,9 @@ const URL = 'http://localhost:3001/home'
             },
             navigateItem(id) {
                 this.$router.push(`/symptoms/${id}`)
+            },
+            navigateToEdit(id){
+                this.$router.push(`/symptoms/${id}/edit`)
             }
         }
     }
