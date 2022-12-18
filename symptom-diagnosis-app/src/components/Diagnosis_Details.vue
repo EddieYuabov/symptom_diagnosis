@@ -5,7 +5,7 @@
         <h3>{{diagnoses.possible_cause}}</h3>
         <h4>{{diagnoses.treatment}}</h4>
         </div>
-        <button id="edit-button">&#9998;</button>
+        <button id="edit-button" @click="navigateToEdit(diagnoses.id)">&#9998;</button>
         <button id="delete-button" @click="deleteDiagnosis">&#128465;</button>
     </div>
 </template>
@@ -30,6 +30,9 @@ export default {
                 e.preventDefault()
                 await axios.delete(`${URL}/diagnosis/${this.$route.params.diagnosis_id}`)
                 this.$router.push(`/diagnoses`)
+            },
+            navigateToEdit(id){
+                this.$router.push(`/diagnosis/edit/${id}`)
             }
         }
 }
