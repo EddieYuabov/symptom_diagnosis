@@ -48,7 +48,23 @@ export default {
             },
             async editDiagnosis(e){
                 e.preventDefault()
-                const data = {name: this.newName, possible_cause: this.newPossibleCause, treatment: this.newTreatment}
+                let name, possible_cause, treatment
+                if(this.newName === ''){
+                    name = this.diagnosis.name
+                } else{
+                    name = this.newName
+                }
+                if(this.newPossibleCause === ''){
+                    possible_cause = this.diagnosis.possible_cause
+                } else{
+                    possible_cause = this.newPossibleCause
+                }
+                if(this.newTreatment === ''){
+                    treatment = this.diagnosis.treatment
+                }else{
+                    treatment = this.newTreatment
+                }
+                const data = {name: name, possible_cause: possible_cause, treatment: treatment}
                 await axios.put(`${URL}/diagnosis/${this.$route.params.diagnosis_id}`, data)
                 this.$router.push(`/diagnoses`)
             }
