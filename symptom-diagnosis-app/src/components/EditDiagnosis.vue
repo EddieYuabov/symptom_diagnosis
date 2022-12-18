@@ -16,7 +16,7 @@
             <input @input="handleChange" :value="newTreatment" name="newTreatment"/>
             <br/>
             <br/>
-            <button>
+            <button @click="editDiagnosis">
                 Edit Diagnosis
             </button>
         </form>
@@ -48,9 +48,9 @@ export default {
             },
             async editDiagnosis(e){
                 e.preventDefault()
-                // const data = {symptom: this.newSymptom}
-                // await axios.put(`${URL}/symptoms/${this.$route.params.symptom_id}`, data)
-                // this.$router.push(`/symptoms`)
+                const data = {name: this.newName, possible_cause: this.newPossibleCause, treatment: this.newTreatment}
+                await axios.put(`${URL}/diagnosis/${this.$route.params.diagnosis_id}`, data)
+                this.$router.push(`/diagnoses`)
             }
         }
 }
