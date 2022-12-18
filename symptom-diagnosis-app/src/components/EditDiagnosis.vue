@@ -5,15 +5,15 @@
     <div>
         <form>
             <label>Name: </label>
-            <input @input="handleChange" :value="newName" name="newName"/>
+            <input @input="handleChange" :placeholder='[[diagnosis.name]]' :value="newName" name="newName"/>
             <br/>
             <br/>
             <label>Possible cause: </label>
-            <input @input="handleChange" :value="newPossibleCause" name="newPossibleCause"/>
+            <input @input="handleChange" :placeholder=[[diagnosis.possible_cause]] :value="newPossibleCause" name="newPossibleCause"/>
             <br/>
             <br/>
             <label>Treatment: </label>
-            <input @input="handleChange" :value="newTreatment" name="newTreatment"/>
+            <input @input="handleChange" :placeholder=[[diagnosis.treatment]] :value="newTreatment" name="newTreatment"/>
             <br/>
             <br/>
             <button @click="editDiagnosis">

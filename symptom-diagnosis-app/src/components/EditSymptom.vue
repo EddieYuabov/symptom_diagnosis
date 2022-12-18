@@ -5,7 +5,7 @@
     <div>
         <form>
             <div>
-                <input @input="handleChange" :value="newSymptom" name="newSymptom"/>
+                <input @input="handleChange" :placeholder='[[symptoms.symptom]]' :value="newSymptom" name="newSymptom"/>
                 <br/>
                 <br/>
                 <button id="edit-symptom-button" @click="editSymptom">
