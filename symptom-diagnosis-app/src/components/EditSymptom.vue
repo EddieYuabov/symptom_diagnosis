@@ -38,8 +38,14 @@ export default {
                 console.log(this.symptoms)
             },
             async editSymptom(e){
+                let symptom
+                if(this.newSymptom === ''){
+                    symptom = this.symptoms.symptom
+                } else{
+                    symptom = this.newSymptom
+                }
                 e.preventDefault()
-                const data = {symptom: this.newSymptom}
+                const data = {symptom: symptom}
                 await axios.put(`${URL}/symptoms/${this.$route.params.symptom_id}`, data)
                 this.$router.push(`/symptoms`)
             }
