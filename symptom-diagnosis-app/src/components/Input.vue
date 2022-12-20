@@ -15,8 +15,8 @@
             </div>
             <div>
                 <label class="label">Gender:</label>
-                <button class="gender-buttons" @click="handleMaleChange">Male</button>
-                <button class="gender-buttons" @click="handleFemaleChange">Female</button>
+                <button id="male-button" @click="handleMaleChange">Male</button>
+                <button id="female-button" @click="handleFemaleChange">Female</button>
                 <br/>
             </div>
             <button class="next-button" @click="$router.push('/symptoms')">Next</button>
@@ -73,7 +73,23 @@
     #name-input{
         margin-left: 19px;
     }
-    .gender-buttons{
+    #male-button{
         font-size: 20px;
+        cursor: pointer;
+        padding: 0px 10px 0px 10px;
+        margin-right: 10px;
+    }
+    #male-button:focus{
+        background-color: rgb(181, 181, 181);
+        padding: 5px 15px 5px 15px
+    }
+    #female-button{
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0px 10px 0px 10px;
+    }
+    #female-button:focus{
+        background-color: rgb(181, 181, 181);
+        padding: 5px 15px 5px 15px
     }
 </style>
