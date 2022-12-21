@@ -41,12 +41,10 @@
             handleMaleChange(e){
                 e.preventDefault()
                 this.gender = "Male"
-                console.log(this.gender)
             },
             handleFemaleChange(e){
                 e.preventDefault()
                 this.gender = "Female"
-                console.log(this.gender)
             }
         }
     }

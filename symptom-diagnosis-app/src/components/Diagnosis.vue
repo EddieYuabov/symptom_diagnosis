@@ -25,12 +25,12 @@
             v-for="diagnose in diagnoses" 
             @click="navigateItem(diagnose.id)"
             >
-                    <h6>Diagnosis:</h6>
-                    <h4>{{diagnose.name}}</h4>
-                    <h6>Possible cause:</h6>
-                    <h4>{{diagnose.possible_cause}}</h4>
-                    <h6>Treatment:</h6>
-                    <h4>{{diagnose.treatment}}</h4>
+                    <h4>Diagnosis:</h4>
+                    <h5>{{diagnose.name}}</h5>
+                    <h4>Possible cause:</h4>
+                    <h5>{{diagnose.possible_cause}}</h5>
+                    <h4>Treatment:</h4>
+                    <h5>{{diagnose.treatment}}</h5>
             </div>
         </div>
     </form>
@@ -81,6 +81,8 @@ const URL = 'http://localhost:3001/home'
         outline-style: groove;
         outline-color: rgba(0, 0, 0, 0.724);
         cursor: pointer;
+        margin: 50px 600px 50px 600px;
+        padding: 30px 0px 30px 0px
     }
     #add-diagnosis{
         cursor: pointer;
